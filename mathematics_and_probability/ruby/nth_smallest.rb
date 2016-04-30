@@ -8,17 +8,58 @@ require 'thread'
 class NthSmallestService
   def initialize
     @q3 = Queue.new
+    @q3_top = 3
     @q5 = Queue.new
+    @q5_top = 5
     @q7 = Queue.new
-    @mins = []
+    @q7_top = 7
+    @mins = [1]
   end
 
   def find_nth(n)
+    (n-1).times do |i|
+      pop_new_min
+    end
+    p @mins
+    @mins[n-1]
   end
 
   def pop_new_min
-    # pop_new_min from the queue
-    # set new candidates
-    if Q
+    if @q3_top && @q3_top < @q5_top && @q3_top < @q7_top
+      @mins << @q3_top
+      @q3.push(@q3_top * 3)
+      @q5.push(@q3_top * 5)
+      @q7.push(@q3_top * 7)
+      unless @q3.empty?
+        @q3_top = @q3.pop
+      else
+        @q3_top = nil
+      end
+    elsif @q5_top && @q5_top < @q3_top && @q5_top < @q7_top
+      @mins << @q5_top
+      @q5.push(@q5_top * 5)
+      @q7.push(@q5_top * 7)
+      unless @q5.empty?
+        @q5_top = @q5.pop
+      else
+        @q5_top = nil
+      end
+    else
+      @mins << @q7_top
+      @q7.push(@q7_top * 7)
+      @q7_top = @q7.pop unless @q7.empty?
+    end
   end
 end
+
+def do_test(n)
+  nth_smallest_service = NthSmallestService.new
+  nth_smallest_service.find_nth(n)
+end
+
+while str = STDIN.gets
+  break if str.chomp == "exit"
+  n = str.chomp.to_i
+end
+
+puts do_test(n)
