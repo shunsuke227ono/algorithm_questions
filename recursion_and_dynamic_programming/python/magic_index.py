@@ -18,12 +18,12 @@ def magic_index(array, s=None, e=None):
 def test():
     print 'case1:'
     magic_index([0,1,2,3])
-    # print 'case2:'
-    # magic_index([0,1,4,8])
-    # print 'case3:'
-    # magic_index([1,2,3,4])
-    # print 'case4:'
-    # magic_index([0,3,5,7])
+    print 'case2:'
+    magic_index([0,1,4,8])
+    print 'case3:'
+    magic_index([1,2,3,4])
+    print 'case4:'
+    magic_index([0,3,5,7])
 
 if __name__ == '__main__':
     test()
