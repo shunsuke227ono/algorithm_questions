@@ -1,4 +1,4 @@
-# algorithm_questions
+# Algorithm Questions
 
 Solving algorithm questions from programming contests like topcoder.
 
