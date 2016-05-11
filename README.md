@@ -11,6 +11,7 @@ Solving algorithm questions from programming contests like topcoder.
 - Recursion and Dynamic Programming
 - Sorting and Searching
 - Trees and Graphs
+- Others
 
 ## Programming Languages
 
