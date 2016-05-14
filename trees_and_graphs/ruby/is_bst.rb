@@ -61,6 +61,8 @@ class IsBstTest
       p not_bst_binary_tree.is_bst?
     end
 
+    private
+    
     def bst_root
       # tree is like below
       #     10
